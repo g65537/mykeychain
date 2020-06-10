@@ -3,10 +3,10 @@
 
 <body>
     <script>
-        window.addEventListener("message", receiveMessage, false);
-        function receiveMessage(event) {
+        window.addEventListener("message", function(event){
             console.log(event);
-        }
+            alert(event.data)
+        }, false);
     </script>
 </body>
 
