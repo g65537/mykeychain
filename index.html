@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
+    <div id="message" class="p20">尚未接受到信息</div>
     <script>
-        window.addEventListener("message", function(event){
-            console.log(event);
-            alert(event.data)
-        }, false);
+        var eleBox = document.querySelector("#message");
+        var messageHandle = function (e) {
+            eleBox.innerHTML = '接受到的信息是：' + e.data;
+        };
+        if (window.addEventListener) {
+            window.addEventListener("message", messageHandle, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onmessage', messageHandle);
+        }
     </script>
 </body>
 
